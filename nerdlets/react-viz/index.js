@@ -2,47 +2,22 @@ import React from 'react';
 
 // https://docs.newrelic.com/docs/new-relic-programmable-platform-introduction
 
-export default class ReactVizNerdlet extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      counter: 0,
-    }
-  }
+import Linechart from './LineChart.js';
+import Piechart from './PieChart.js';
+import Areachart from './AreaChart.js';
 
-  increment = () => {
-    this.setState((prevState) => ({
-      counter: prevState.counter + 1,
-    }))
-  }
-  decrement = () => {
-    this.setState((prevState) => ({
-      counter: prevState.counter - 1,
-    }));
-  };
-  reset = () => {
-    this.setState((prevState) => ({
-      counter: 0,
-    }))
-  }
-
+export default class HomeNerdlet extends React.Component {
   render() {
-    const { counter } = this.state;
-
     return (
       <div>
-        <h2>Counter : {counter} </h2>
-        <br />
-        <br />
-
-        <button className='increment button1' onClick={this.increment}>High</button>
-
-        <button className='reset button1 ' onClick={this.reset}>Reset</button>
-
-        <button className='decrement button1' onClick={this.decrement}>Low</button>
-
+        <h1>Line Chart</h1>
+        <Linechart />
+        <h1>Pie chart</h1>
+        <Piechart />
+        <h1>Area Chart</h1>
+        <Areachart />
 
       </div>
-    )
+    );
   }
 }
